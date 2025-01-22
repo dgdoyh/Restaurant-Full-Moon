@@ -22,15 +22,14 @@ public class DataPersisenceManager : MonoBehaviour
     {
         if(Instance != null)
         {
-
         }
         Instance = this;
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
         this.dataPersisenceObjects = FindAllDataPersisenceObjects();
     }
+
     private void Start()
     {
-        LoadGame();
     }
 
 
@@ -59,17 +58,6 @@ public class DataPersisenceManager : MonoBehaviour
         }
         dataHandler.Save(gameData); 
     }
-
-    public void SaveAndLoad()
-    {
-        SaveGame();
-        LoadGame();
-    }
-
-    private void OnApplicationQuit()
-    {
-        //SaveGame();
-    } 
 
     private List<IDataPersisence> FindAllDataPersisenceObjects()
     {

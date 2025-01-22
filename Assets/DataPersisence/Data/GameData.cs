@@ -7,6 +7,10 @@ using UnityEngine;
 
 public class GameData
 {
-    
+    public int BoostTime;
 
+    public GameData()
+    {
+        BoostTime = 0;
+    }
 }
