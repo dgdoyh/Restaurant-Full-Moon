@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class InputReader : MonoBehaviour
 {
+    private KitchenInputActions kitchenInputActions;
+
+    private void Awake()
+    {
+        kitchenInputActions = new KitchenInputActions();
+        kitchenInputActions.Camera.Enable();
+    }
+
     public float GetZInput()
     {
-        if (Input.GetKey(KeyCode.A)) { return -1f; }
-        if (Input.GetKey(KeyCode.D)) { return 1f; }
-
-        return 0f;
+        return kitchenInputActions.Camera.Move.ReadValue<float>();
     }
 }
